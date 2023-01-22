@@ -19,7 +19,7 @@ const SigninForm = ({ logGoogleUser, signAuthUserInWithEmailAndPassword }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await signAuthUserInWithEmailAndPassword(
+      const { user } = await signAuthUserInWithEmailAndPassword(
         email,
         password
       );
@@ -35,7 +35,6 @@ const SigninForm = ({ logGoogleUser, signAuthUserInWithEmailAndPassword }) => {
         default:
           console.log(error);
       }
-      console.log(error);
     }
   };
   const handleInput = (e) => {
