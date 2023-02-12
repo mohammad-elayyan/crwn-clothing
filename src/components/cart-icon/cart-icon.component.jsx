@@ -4,14 +4,16 @@ import { CartContext } from "../../contexts/cart.context";
 import "./cart-icon.styles.scss";
 
 const CartIcon = () => {
-  const { cartState, setCartState } = useContext(CartContext);
+  const { cartState, setCartState, cartCount } = useContext(CartContext);
   const cartHandler = () => {
-    cartState ? setCartState(false) : setCartState(true);
+    setCartState(!cartState);
   };
+  // let c = 0;
+  // cartItems.map((cartItem) => (c += cartItem.quantity));
   return (
     <div className="cart-icon-container" onClick={cartHandler}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{cartCount}</span>
     </div>
   );
 };
