@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
-import "./signup-form.styles.scss";
+import { SignupContainer, H2 } from "./signup-form.styles";
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -56,8 +56,8 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>Don't have an account </h2>
+    <SignupContainer>
+      <H2>Don't have an account </H2>
       <span>Sign up with your email & password</span>
       <form onSubmit={(e) => handleSubmit(e)}>
         <FormInput
@@ -95,7 +95,7 @@ const SignupForm = () => {
         {passwordRule ? <h4>{passwordRule}</h4> : ""}
         <Button type="submit">Sign Up</Button>
       </form>
-    </div>
+    </SignupContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
-import "./signin-form.styles.scss";
+import Button, { button_type_classes } from "../button/button.component";
+import { ButtonsContainer, H2, SignupContainer } from "./signin-form.styles";
 
 const SigninForm = ({ logGoogleUser, signAuthUserInWithEmailAndPassword }) => {
   const defaultFormFields = {
@@ -42,8 +42,8 @@ const SigninForm = ({ logGoogleUser, signAuthUserInWithEmailAndPassword }) => {
     setFormFields({ ...formFields, [name]: value });
   };
   return (
-    <div className="sign-up-container">
-      <h2>Already have an account</h2>
+    <SignupContainer>
+      <H2>Already have an account</H2>
       <span>Sign up with your email & password</span>
       <form onSubmit={(e) => handleSubmit(e)}>
         <FormInput
@@ -63,14 +63,18 @@ const SigninForm = ({ logGoogleUser, signAuthUserInWithEmailAndPassword }) => {
           onChange={handleInput}
         />
         <h4>{errorMessage}</h4>
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={logGoogleUser}>
+          <Button
+            type="button"
+            buttonType={button_type_classes.google}
+            onClick={logGoogleUser}
+          >
             Sign In With Google
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignupContainer>
   );
 };
 
